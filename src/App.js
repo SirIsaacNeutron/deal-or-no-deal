@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Cases from './components/Cases';
+import ValuesTable from './components/ValuesTable';
 
 import logo from './logo.svg';
 import './App.css';
@@ -34,7 +35,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Cases cases={this.state.cases}/>
+        <div className="game-cases-info" style={{
+            display: 'flex',
+          }}>
+          <Cases cases={this.state.cases} />
+          <li className="spacer" style={{
+              visibility: 'hidden',
+              flexGrow: '5',
+            }} />
+          <ValuesTable cases={this.state.cases} />
+        </div>
       </div>
     );
   }
