@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Cases from './components/Cases';
 import ValuesTable from './components/ValuesTable';
 
-import logo from './logo.svg';
 import './App.css';
 
 const CASE_VALUES = [0.01, 1, 5, 10, 25, 50, 75, 100,
@@ -38,7 +37,9 @@ class App extends Component {
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
-          <Cases cases={this.state.cases} />
+          <div className="cases">
+            <Cases cases={this.state.cases} />
+          </div>
           <li className="spacer" style={{
               visibility: 'hidden',
               flexGrow: '5',

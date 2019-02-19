@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Cases from './Cases';
-
 class Case extends Component {
   render() {
     return (

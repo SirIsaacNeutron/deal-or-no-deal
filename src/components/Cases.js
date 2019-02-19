@@ -8,17 +8,13 @@ class Cases extends Component {
     let caseElements = [];
 
     for (let i = 0; i < this.props.cases.length; ++i) {
-      caseElements.push(<Case case={this.props.cases[i]} />);
-      if (i % 5 === 0 && i != 0) {
-        caseElements.push(<br />);
+      caseElements.push(<Case key={i}case={this.props.cases[i]} />);
+      if (i % 5 === 0 && i !== 0) {
+        caseElements.push(<br key={i * 10}/>);
       }
     }
 
-    return (
-      <table>
-        {caseElements}
-      </table>
-    )
+    return caseElements.map(element => element);
   }
 }
 
