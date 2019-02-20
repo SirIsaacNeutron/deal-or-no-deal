@@ -24,7 +24,7 @@ class App extends Component {
       cases.push({
         value,
         caseNum: index + 1,
-        chosen: false,
+        opened: false,
       });
     });
 

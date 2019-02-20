@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ValuesTableCell from './ValuesTableCell';
+
 class ValuesTable extends Component {
   render() {
     let casesSortedByValue = [...this.props.cases];
@@ -13,8 +15,8 @@ class ValuesTable extends Component {
     for (let i = 0; i < 13; ++i) {
       tableElements.push(
         <tr key={i + 1}>
-          <td>{this.props.cases[i].value}</td>
-          <td>{this.props.cases[i + 13].value}</td>
+          <ValuesTableCell case={this.props.cases[i]} />
+          <ValuesTableCell case={this.props.cases[i + 13]} />
         </tr>
       );
     }
