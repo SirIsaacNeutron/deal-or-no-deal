@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Cases from './components/Cases';
 import ValuesTable from './components/ValuesTable';
+import Header from './components/Header';
 
 import './App.css';
 
@@ -34,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+				<Header />
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
