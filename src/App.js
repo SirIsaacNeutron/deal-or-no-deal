@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Cases from './components/Cases';
 import ValuesTable from './components/ValuesTable';
 import Header from './components/Header';
+import TurnInfo from './components/TurnInfo';
 
 import './App.css';
 
@@ -15,6 +16,9 @@ class App extends Component {
     super(props);
     this.state = {
       cases: this.createCases(),
+			initialCaseChosen: false,
+			initialCase: '',
+			initialCaseNum: 0,
     }
   }
 
@@ -32,15 +36,31 @@ class App extends Component {
     return cases;
   }
 
+	chooseCase = (caseNum) => {
+		if (!this.state.initialCaseChosen) {
+			this.setState({
+				cases: this.state.cases,
+				initialCaseChosen: true,
+				initialCase: this.state.cases[caseNum - 1],
+				initialCaseNum: caseNum,
+			});
+		}
+	}
+
   render() {
     return (
       <div className="App">
 				<Header />
+				<TurnInfo
+					initialCaseChosen={this.state.initialCaseChosen}
+					initialCaseNum={this.state.initialCaseNum}/>
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
           <div className="cases">
-            <Cases cases={this.state.cases} />
+            <Cases cases={this.state.cases}
+							chooseCase={this.chooseCase}
+							initialCaseNum={this.state.initialCaseNum} />
           </div>
           <li className="spacer" style={{
               visibility: 'hidden',

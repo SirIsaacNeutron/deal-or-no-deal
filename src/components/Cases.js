@@ -8,7 +8,10 @@ class Cases extends Component {
     let caseElements = [];
 
     for (let i = 0; i < this.props.cases.length; ++i) {
-      caseElements.push(<Case key={i}case={this.props.cases[i]} />);
+      caseElements.push(<Case key={i}
+        case={this.props.cases[i]}
+        chooseCase={this.props.chooseCase}
+        initialCaseNum={this.props.initialCaseNum}/>);
       if (i % 5 === 0 && i !== 0) {
         caseElements.push(<br key={i * 10}/>);
       }
