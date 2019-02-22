@@ -11,7 +11,8 @@ class Cases extends Component {
       caseElements.push(<Case key={i}
         case={this.props.cases[i]}
         chooseCase={this.props.chooseCase}
-        initialCaseNum={this.props.initialCaseNum}/>);
+        initialCaseNum={this.props.initialCaseNum}
+        caseOpened={this.props.cases[i].opened} />);
       if (i % 5 === 0 && i !== 0) {
         caseElements.push(<br key={i * 10}/>);
       }
