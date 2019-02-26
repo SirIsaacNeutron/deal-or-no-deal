@@ -25,6 +25,7 @@ class App extends Component {
 			caseChosenNormally: '',
 			offer: 0,
 			turnNum: 1,
+			numCasesRemaining: 26,
     }
   }
 
@@ -57,6 +58,10 @@ class App extends Component {
 				caseChosenNormally: this.state.cases[caseNum - 1],
 			});
 		}
+
+		this.setState({
+			numCasesRemaining: this.state.numCasesRemaining - 1,
+		});
 
 		if (this.state.numCasesToChoose - 1 === 0) {
 			this.calculateOffer();
@@ -95,6 +100,22 @@ class App extends Component {
 		});
 	}
 
+	keepCase = () => {
+		this.state.offer = this.state.initialCase.value;
+
+		this.acceptDeal();
+	}
+
+	swapCase = () => {
+		const lastCase = [...this.state.cases.filter(c => {
+			return c !== this.state.initialCase && !c.opened;
+		})][0];
+
+		this.state.offer = lastCase.value;
+
+		this.acceptDeal();
+	}
+
   render() {
     return (
       <div className="App">
@@ -104,7 +125,10 @@ class App extends Component {
 					numCasesToChoose={this.state.numCasesToChoose}
 					offer={this.state.offer}
 					acceptDeal={this.acceptDeal}
-					rejectDeal={this.rejectDeal}/>
+					rejectDeal={this.rejectDeal}
+					numCasesRemaining={this.state.numCasesRemaining}
+					keepCase={this.keepCase}
+					swapCase={this.swapCase}/>
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
