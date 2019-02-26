@@ -26,7 +26,7 @@ class TurnInfo extends Component {
     }
     return (
       <div className="offer-info">
-        <h2>Offer: {this.props.offer}</h2>
+        <h2>Offer: {this.props.formatMoney(this.props.offer)}</h2>
         <button onClick={this.props.acceptDeal}>Deal</button>or<button onClick={this.props.rejectDeal}>No Deal?</button>
       </div>
     );
@@ -42,6 +42,7 @@ TurnInfo.propTypes = {
   numCasesRemaining: PropTypes.number.isRequired,
   keepCase: PropTypes.func.isRequired,
   swapCase: PropTypes.func.isRequired,
+  formatMoney: PropTypes.func.isRequired,
 };
 
 export default TurnInfo;

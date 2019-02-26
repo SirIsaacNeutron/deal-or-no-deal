@@ -86,7 +86,7 @@ class App extends Component {
 	}
 
 	acceptDeal = () => {
-		alert("You won " + this.state.offer + "!"
+		alert("You won " + this.formatMoney(this.state.offer) + "!"
 					+ "\nThank you for playing Deal or No Deal!");
 	}
 
@@ -116,6 +116,22 @@ class App extends Component {
 		this.acceptDeal();
 	}
 
+	formatMoney = (amount, decimalCount = 2, decimal = ".", thousands = ",") => {
+		// Mostly copied from
+		// https://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-dollars-currency-string-in-javascript
+	  try {
+	    decimalCount = Math.abs(decimalCount);
+	    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+	    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+	    let j = (i.length > 3) ? i.length % 3 : 0;
+
+	    return "$" + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+	  } catch (e) {
+	    console.log(e);
+	  }
+	}
+
   render() {
     return (
       <div className="App">
@@ -128,7 +144,8 @@ class App extends Component {
 					rejectDeal={this.rejectDeal}
 					numCasesRemaining={this.state.numCasesRemaining}
 					keepCase={this.keepCase}
-					swapCase={this.swapCase}/>
+					swapCase={this.swapCase}
+					formatMoney={this.formatMoney}/>
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
@@ -141,7 +158,9 @@ class App extends Component {
               visibility: 'hidden',
               flexGrow: '5',
             }} />
-          <ValuesTable cases={this.state.cases} />
+          <ValuesTable
+						cases={this.state.cases}
+						formatMoney={this.formatMoney}/>
         </div>
       </div>
     );
