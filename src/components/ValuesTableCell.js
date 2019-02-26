@@ -5,8 +5,8 @@ class ValuesTableCell extends Component {
   render() {
     const caseValue = this.props.case.value;
     return this.props.case.opened ?
-      <td style={{textDecoration: 'line-through'}}>{caseValue}</td> :
-      <td>{caseValue}</td>
+      <td class="ValuesTableCell" style={{backgroundColor: "#888"}}>{caseValue}</td> :
+      <td class="ValuesTableCell" style={{backgroundColor: "#ff6"}}>{caseValue}</td>
   }
 }
 
