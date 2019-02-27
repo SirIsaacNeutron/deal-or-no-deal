@@ -14,7 +14,8 @@ class TurnInfo extends Component {
         </div>
       );
     }
-    if (this.props.numCasesRemaining === 1) {
+    if (this.props.finalOfferMade
+      && this.props.numCasesRemaining === 1) {
       return (
         <div className="turn-info">
           <h2>Would you like to keep your case (case #{this.props.initialCaseNum}),
@@ -43,6 +44,7 @@ TurnInfo.propTypes = {
   keepCase: PropTypes.func.isRequired,
   swapCase: PropTypes.func.isRequired,
   formatMoney: PropTypes.func.isRequired,
+  finalOfferMade: PropTypes.bool.isRequired,
 };
 
 export default TurnInfo;

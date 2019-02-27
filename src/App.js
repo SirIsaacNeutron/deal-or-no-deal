@@ -26,6 +26,7 @@ class App extends Component {
 			offer: 0,
 			turnNum: 1,
 			numCasesRemaining: 26,
+			finalOfferMade: false,
     }
   }
 
@@ -98,6 +99,13 @@ class App extends Component {
 			turnNum: this.state.turnNum + 1,
 			numCasesToChoose: newNumCasesToChoose,
 		});
+
+		if (this.state.numCasesRemaining === 1) {
+			this.setState({
+				numCasesToChoose: 0,
+				finalOfferMade: true,
+			})
+		}
 	}
 
 	keepCase = () => {
@@ -145,7 +153,8 @@ class App extends Component {
 					numCasesRemaining={this.state.numCasesRemaining}
 					keepCase={this.keepCase}
 					swapCase={this.swapCase}
-					formatMoney={this.formatMoney}/>
+					formatMoney={this.formatMoney}
+					finalOfferMade={this.state.finalOfferMade}/>
         <div className="game-cases-info" style={{
             display: 'flex',
           }}>
