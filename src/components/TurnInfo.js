@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 class TurnInfo extends Component {
   render() {
     if (this.props.initialCaseNum === 0) {
-      return <h2>Please choose the case you wish to keep.</h2>;
+      return (
+        <div className="turn-info">
+          <h2>Please choose the case you wish to keep.</h2>
+        </div>
+      );
     }
     if (this.props.numCasesToChoose !== 0) {
       return (
@@ -26,7 +30,7 @@ class TurnInfo extends Component {
       );
     }
     return (
-      <div className="offer-info">
+      <div className="turn-info">
         <h2>Offer: {this.props.formatMoney(this.props.offer)}</h2>
         <button onClick={this.props.acceptDeal}>Deal</button>or<button onClick={this.props.rejectDeal}>No Deal?</button>
       </div>

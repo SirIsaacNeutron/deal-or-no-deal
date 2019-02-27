@@ -1,3 +1,18 @@
+header h1 {
+	margin-top: 0;
+	font-style: italic;
+	background: #e4fc1e;
+	text-align: center;
+}
+
+body {
+	background-image: url("http://www.qwizx.com/gameshows/dond/dond_blank.jpg");
+}
+
+.turn-info {
+	color: white;
+}
+
 .values-table {
 	border-collapse: collapse;
 }
