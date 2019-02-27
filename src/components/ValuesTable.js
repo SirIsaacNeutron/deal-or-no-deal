@@ -6,20 +6,20 @@ import ValuesTableCell from './ValuesTableCell';
 class ValuesTable extends Component {
   render() {
     let casesSortedByValue = [...this.props.cases];
-    casesSortedByValue.sort((first, second) => {
-      return first < second;
+    casesSortedByValue.sort((firstCase, secondCase) => {
+      return firstCase.value >= secondCase.value;
     });
 
     let tableElements = [];
-
+    
     for (let i = 0; i < 13; ++i) {
       tableElements.push(
         <tr key={i + 1}>
           <ValuesTableCell
-            case={this.props.cases[i]}
+            case={casesSortedByValue[i]}
             formatMoney={this.props.formatMoney}/>
           <ValuesTableCell
-            case={this.props.cases[i + 13]}
+            case={casesSortedByValue[i + 13]}
             formatMoney={this.props.formatMoney}/>
         </tr>
       );

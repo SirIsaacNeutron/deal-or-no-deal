@@ -9,7 +9,7 @@ class Case extends Component {
       && !this.props.caseOpened ?
       <button
         onClick={this.props.chooseCase.bind(this, caseNum)}>
-        {this.props.case.caseNum}
+        {this.props.caseNum}
       </button>
       :
       <button>
@@ -20,6 +20,10 @@ class Case extends Component {
 
 Case.propTypes = {
   case: PropTypes.object.isRequired,
+  // Required for displaying the cases in order. this.props.case
+  // is from the SHUFFLED cases array in App, so relying on that
+  // to display the cases will result in the cases being in a random order.
+  caseNum: PropTypes.number.isRequired,
   chooseCase: PropTypes.func.isRequired,
   initialCaseNum: PropTypes.number.isRequired,
   caseOpened: PropTypes.bool.isRequired,

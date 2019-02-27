@@ -13,6 +13,25 @@ const CASE_VALUES = [0.01, 1, 5, 10, 25, 50, 75, 100,
 
 const ORIGINAL_NUM_CHOICES = 6;
 
+function shuffle(array) {
+	let counter = array.length;
+
+  // While there are elements in the array
+	while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+      // Decrease counter by 1
+      --counter;
+
+      // And swap the last element with it
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+  }
+
+  return array;
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +52,9 @@ class App extends Component {
   createCases = () => {
     let cases = [];
 
-    CASE_VALUES.forEach((value, index) => {
+		let randomCaseValues = shuffle([...CASE_VALUES]);
+
+    randomCaseValues.forEach((value, index) => {
       cases.push({
         value,
         caseNum: index + 1,

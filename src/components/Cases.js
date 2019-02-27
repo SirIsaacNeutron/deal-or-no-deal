@@ -10,6 +10,7 @@ class Cases extends Component {
     for (let i = 0; i < this.props.cases.length; ++i) {
       caseElements.push(<Case key={i}
         case={this.props.cases[i]}
+        caseNum={i + 1}
         chooseCase={this.props.chooseCase}
         initialCaseNum={this.props.initialCaseNum}
         caseOpened={this.props.cases[i].opened} />);
