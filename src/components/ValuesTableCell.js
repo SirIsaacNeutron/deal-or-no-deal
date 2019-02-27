@@ -8,10 +8,10 @@ class ValuesTableCell extends Component {
       "$0.01" : this.props.formatMoney(caseValue, 0);
 
     return this.props.case.opened ?
-      <td class="ValuesTableCell" style={{backgroundColor: "#888"}}>
+      <td class="values-table-cell" style={{backgroundColor: "#888"}}>
         {caseValueString}
       </td> :
-      <td class="ValuesTableCell" style={{backgroundColor: "#ff6"}}>
+      <td class="values-table-cell" style={{backgroundColor: "#ff6"}}>
         {caseValueString}
       </td>
   }

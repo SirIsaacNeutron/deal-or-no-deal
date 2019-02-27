@@ -26,7 +26,7 @@ class ValuesTable extends Component {
     }
 
     return (
-      <table class="ValuesTable">
+      <table className="values-table">
         <tbody>
           {tableElements}
         </tbody>

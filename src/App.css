@@ -1,8 +1,8 @@
-.ValuesTable {
+.values-table {
 	border-collapse: collapse;
 }
 
-.ValuesTableCell {
+.values-table-cell {
 	width: 100px;
 	height: 20px;
 	text-align: center;
