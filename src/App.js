@@ -14,6 +14,8 @@ const CASE_VALUES = [0.01, 1, 5, 10, 25, 50, 75, 100,
 const ORIGINAL_NUM_CHOICES = 6;
 
 function shuffle(array) {
+	// Copied from Stack Overflow
+	// https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
 	let counter = array.length;
 
   // While there are elements in the array
